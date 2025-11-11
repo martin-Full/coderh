@@ -1,0 +1,255 @@
+/* ==============================
+    CONFIGURACIÓN GLOBAL
+============================== */
+
+:root {
+    --color-primario: #0d6efd;
+    --color-secundario: #6c757d;
+    --color-fondo: white;
+    --color-texto: #212529;
+    --color-acento: #6610f2;
+    --transicion: all 0.3s ease-in-out;
+    --radius: 0.75rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==============================
+    LAYOUT Y ESTRUCTURA
+============================== */
+
+header {
+    backdrop-filter: blur(5px);
+    transition: var(--transicion);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: var(--transicion);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-primario);
+    bottom: 0;
+    left: 0;
+    transition: var(--transicion);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ==============================
+    SECCIONES
+============================== */
+
+section {
+    padding-block: 4rem;
+}
+
+section:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Hero principal */
+
+/* ==============================
+CENTRADO GENERAL DEL CONTENIDO
+============================== */
+
+main,
+section,
+footer {
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    /* más contenido centrado en pantallas grandes */
+    margin: 0 auto;
+    /* centra el contenedor */
+}
+
+.row {
+    justify-content: center;
+    /* centra las columnas dentro de la grilla */
+}
+
+form {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.card {
+    margin: 0 auto;
+}
+
+
+section.bg-light {
+    background: linear-gradient(135deg,
+            var(--color-primario) 0%,
+            var(--color-acento) 100%);
+    color: red
+}
+
+section.bg-light h1,
+section.bg-light p {
+    color:  white
+}
+
+.btn-primary {
+    background-color: white;
+    color: var(--color-primario);
+    border: none;
+    font-weight: 600;
+    transition: var(--transicion);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-acento);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ==============================
+    CARDS Y CONTENEDORES
+============================== */
+
+.card {
+    border: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transicion);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: var(--transicion);
+}
+
+.card:hover .card-img-top {
+    filter: brightness(1);
+}
+
+/* ==============================
+    FORMULARIO DE CONTACTO
+============================== */
+
+form {
+    border-radius: var(--radius);
+    transition: var(--transicion);
+}
+
+form:focus-within {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-primario) !important;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* ==============================
+    FOOTER
+============================== */
+
+footer {
+    background-color: #111;
+    color: #eee;
+    font-size: 0.9rem;
+}
+
+footer small {
+    color: #aaa;
+}
+
+/* ==============================
+    EFECTOS Y ANIMACIONES
+============================== */
+
+/* Animación de aparición */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card,
+form,
+section.bg-light {
+    animation: fadeInUp 0.8s ease both;
+}
+
+/* Hover sobre botones secundarios */
+.btn-secondary:hover {
+    background-color: var(--color-acento);
+    border: none;
+}
+
+/* ==============================  RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    .navbar-nav {
+        gap: 0.5rem;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding-block: 3rem;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+}
